@@ -28,8 +28,8 @@ const chartComponent = ({ data }) => {
     dataSource: {
       // Chart Configuration
       chart: {
-        caption: 'Most popular',
-        yAxisName : 'Stars',
+        caption: 'Plus populaire',
+        yAxisName : 'Étoiles',
         xAxisName : 'Repos',
         xAxisNameFontSize : '16px',
         yAxisNameFontSize : '16px',

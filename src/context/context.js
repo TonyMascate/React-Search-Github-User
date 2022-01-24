@@ -70,6 +70,9 @@ const GithubProvider = ({children}) =>  {
     }
     
     useEffect(checkRequests, [])
+    useEffect(() => {
+        searchGithubUser('TonyMascate')
+    }, [])
 
     return(
         <GithubContext.Provider value={{

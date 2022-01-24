@@ -15,7 +15,7 @@ const Card = () => {
           <h4>{name}</h4>
           {twitter_username && <p>@{twitter_username}</p>}
         </div>
-        <a href={html_url}>follow</a>
+        <a href={html_url}>Suivre</a>
       </header>
       <p className="bio">{bio}</p>
       <div className="links">

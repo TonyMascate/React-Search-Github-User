@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { MdSearch } from 'react-icons/md';
 import { GithubContext, useGlobalContext } from '../context/context';
+import { BsSearch } from 'react-icons/bs'
 const Search = () => {
 
   const [user, setUser] = useState('')
@@ -19,12 +20,12 @@ const Search = () => {
 
   return (
     <section className="section">
-      <Wrapper className='section-center'>
-        {error.show &&
+      <Wrapper className="section-center">
+        {error.show && (
           <ErrorWrapper>
             <p>{error.msg}</p>
           </ErrorWrapper>
-        }
+        )}
         <form onSubmit={handleSubmit}>
           <div className="form-control">
             <MdSearch />
@@ -32,15 +33,21 @@ const Search = () => {
               type="text"
               placeholder="enter github user"
               value={user}
-              onChange={(e) => setUser(e.target.value)} />
-              {requests > 0 && !loading &&
-              (<button type="submit">search</button>)}
+              onChange={(e) => setUser(e.target.value)}
+            />
+            {requests > 0 && !loading && (
+              <button type="submit" className='search'>
+                <BsSearch className="search-btn" />
+              </button>
+            )}
           </div>
         </form>
-        <h3>requests : {requests} / {maxRequests}</h3>
+        <h3>
+          requests : {requests} / {maxRequests}
+        </h3>
       </Wrapper>
     </section>
-  )
+  );
 };
 
 const Wrapper = styled.div`
@@ -62,6 +69,18 @@ const Wrapper = styled.div`
     column-gap: 0.5rem;
     border-radius: 5px;
     padding: 0.5rem;
+    .search {
+      position: relative;
+      height: 100%;
+      width: 40px;
+      .search-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform : translate(-50%, -50%);
+        color: white;
+      }
+    }
     input {
       border-color: transparent;
       outline-color: var(--clr-grey-10);
